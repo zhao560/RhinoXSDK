@@ -1,0 +1,6 @@
+framework module RhinoXCore {
+  umbrella header "RhinoXCore.h"
+
+  export *
+  module * { export * }
+}
