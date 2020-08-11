@@ -23,3 +23,4 @@ FOUNDATION_EXPORT const unsigned char RhinoXCoreVersionString[];
 #import <RhinoXCore/RXSplashAdView.h>
 #import <RhinoXCore/RXRewardedVideoAd.h>
 #import <RhinoXCore/RXRewardedVideoModel.h>
+#import <RhinoXCore/RXFissionManager.h>

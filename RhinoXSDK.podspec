@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "RhinoXSDK"
-s.version      = "1.0.3"
+s.version      = "1.0.4"
 s.summary      = "搏牛工具"
 
 s.homepage     = "https://github.com/zhao560/RhinoXSDK"
@@ -19,9 +19,7 @@ s.frameworks = 'UIKit', 'WebKit', 'Foundation'
 
 s.vendored_frameworks =  ['Frameworks/RhinoXCore.framework']
 
-#s.resource = ''
-
-#s.dependency 'SSZipArchive', '~> 2.2.3'
+s.resource = ['Frameworks/RhinoXCore.bundle']
 
 end
 

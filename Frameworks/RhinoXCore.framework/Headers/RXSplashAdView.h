@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+extern NSString *const kRXSplashAdName; // 开屏广告
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class RXSplashAdView;
@@ -35,6 +37,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  开屏广告点击回调
  */
 - (void)splashAdClicked:(RXSplashAdView *)splashAd;
+
+/**
+ * 打开appstore或打开网页页面关闭回调
+ */
+- (void)splashAdDidCloseOtherController:(RXSplashAdView *)splashAd;
 
 /**
  *  开屏广告将要关闭回调
@@ -73,11 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat fetchDelay;
 
 /**
- * 用于处理ad操作的根视图控制器
- */
-@property (nonatomic, weak) UIViewController *rootViewController;
-
-/**
  * 构造方法
  * rootViewController  用来跳转到广告页面
  * 详解：bottomView - 底部logo
@@ -94,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  展示广告
  */
-- (void)showAdInWindow:(UIWindow *)window skipView:(UIView * _Nullable)skipView;
+- (void)showAdInWindow:(UIWindow *)window;
 
 @end
 
