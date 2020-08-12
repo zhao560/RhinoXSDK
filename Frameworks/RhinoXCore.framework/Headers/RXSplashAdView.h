@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-extern NSString *const kRXSplashAdName; // 开屏广告
-
 NS_ASSUME_NONNULL_BEGIN
+
+extern NSString *const kRXSplashAdName; // 开屏广告
 
 @class RXSplashAdView;
 

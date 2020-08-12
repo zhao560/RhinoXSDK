@@ -12,7 +12,7 @@
 		040D438B24B5B6D200B12D1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040D438A24B5B6D200B12D1A /* Assets.xcassets */; };
 		040D438E24B5B6D200B12D1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040D438C24B5B6D200B12D1A /* LaunchScreen.storyboard */; };
 		040D439124B5B6D200B12D1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D439024B5B6D200B12D1A /* main.m */; };
-		0489518A24E24A8C00F6A965 /* RhinoXCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0489518924E24A8C00F6A965 /* RhinoXCore.framework */; };
+		04B9DCEC24E3ECCB00D6B428 /* RhinoXCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B9DCEB24E3ECCB00D6B428 /* RhinoXCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		040D438D24B5B6D200B12D1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		040D438F24B5B6D200B12D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		040D439024B5B6D200B12D1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0489518924E24A8C00F6A965 /* RhinoXCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RhinoXCore.framework; sourceTree = "<group>"; };
+		04B9DCEB24E3ECCB00D6B428 /* RhinoXCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RhinoXCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0489518A24E24A8C00F6A965 /* RhinoXCore.framework in Frameworks */,
+				04B9DCEC24E3ECCB00D6B428 /* RhinoXCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +75,7 @@
 		040D439724B5B83500B12D1A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0489518924E24A8C00F6A965 /* RhinoXCore.framework */,
+				04B9DCEB24E3ECCB00D6B428 /* RhinoXCore.framework */,
 			);
 			path = Frameworks;
 			sourceTree = SOURCE_ROOT;
@@ -293,7 +293,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.rhinox.RhinoXSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -314,7 +314,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.rhinox.RhinoXSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
