@@ -130,7 +130,7 @@ RXSplashAdView接口说明
 /**
  *  展示广告
  */
-- (void)showAdInWindow:(UIWindow *)window skipView:(UIView * _Nullable)skipView;
+- (void)showAdInWindow:(UIWindow *)window;
 
 @end
 ```
@@ -187,6 +187,7 @@ RXSplashAdView回调
     [RXAdConfig setGDTAdWithAppID: @""];
   
     // 初始化开屏
+  	// BottomView 可用于底部展示logo
     self.splashAdView = [[RXSplashAdView alloc] initWithRootViewController:self.window.rootViewController
                                                             WithBottomView:nil];
     // 拉取广告超时时间 默认为3秒
@@ -207,7 +208,7 @@ RXSplashAdView回调
  */
 - (void)splashAdDidLoad:(RXSplashAdView *)splashAd
 {
-    [self.splashAdView showAdInWindow:self.window skipView:nil];
+    [self.splashAdView showAdInWindow:self.window];
 }
 /**
  *  开屏广告展示失败
