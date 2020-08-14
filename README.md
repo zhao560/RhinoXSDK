@@ -3,7 +3,7 @@
 要使用CocoaPods将RhinoXSDK集成到您的Xcode项目中，请在您的`Podfile`中指定
 
 ```ruby
-pod 'RhinoXSDK', '~> 1.0.5'
+pod 'RhinoXSDK', '~> 1.0.6'
 ```
 
 ## 工具使用
@@ -57,139 +57,64 @@ pod 'RhinoXSDK', '~> 1.0.5'
 
 ## 广告用法
 
-如果要使用穿山甲(Bytedance-UnionAD) 请在您的`Podfile`中指定
+如果要使用穿山甲(Bytedance-UnionAD) 请在您的`Podfile`中指定 不用可不导入
 
 ```ruby
 pod 'Bytedance-UnionAD'
 ```
 
-如果要使用优量汇广告(GDTMobSDK) 请在您的`Podfile`中指定
+如果要使用优量汇广告(GDTMobSDK)  请在您的`Podfile`中指定 不用可不导入
 
 ```ruby
 pod 'GDTMobSDK'
 ```
 
+如果要使用谷歌广告  请在您的`Podfile`中指定 不用可不导入
+
+```cpp
+pod 'Google-Mobile-Ads-SDK'
+```
+
 SDK 需要在 AppDelegate 的方法 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 里进行初始化
 
 ```objective-c
-// 穿山甲设置 appID 
-[RXAdConfig setBUAdWithAppID: @""];
-// 优量汇设置 appID 
-[RXAdConfig setGDTAdWithAppID: @""];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // Override point for customization after application launch.
+    /**
+    * 穿山甲sdk注册接口，请在app初始化时调用。
+    */
+    [RXAdConfig setBUAdWithAppID:@""];
+    /**
+    * 优量汇sdk注册接口，请在app初始化时调用。
+    */
+    [RXAdConfig setGDTAdWithAppID:@""];
+    /**
+    * 初始化移动广告
+    * 请在您的应用的 Info.plist 文件中，添加一个字符串值为您的 AdMob 应用 ID
+    * 请参考 https://developers.google.cn/admob/ios/quick-start
+    */
+    [RXAdConfig startGADMobileAdWithCompletionHandler:^(id  _Nonnull status) {
+        
+    }];
+}
 ```
 
 ### 开屏广告
 
 类型说明：开屏广告主要是 APP 启动时展示的全屏广告视图，开发只要按照接入标准就能够展示设计好的视图。
 
-RXSplashAdView接口说明
-
-```objective-c
-@interface RXSplashAdView : UIView
-/**
- *  委托对象
- */
-@property (nonatomic, weak) id<RXSplashAdViewDelegate> delegate;
-
-/**
- * 穿山甲广告位id
- */
-@property (nonatomic, copy, nonnull) NSString *BUSlotID;
-
-/**
- * 广点通广告位id
- */
-@property (nonatomic, copy, nonnull) NSString *GDTSlotID;
-
-/**
- *  拉取广告超时时间，默认为3秒
- *  详解：拉取广告超时时间，开发者调用loadAd方法以后会立即展示backgroundImage，然后在该超时时间内，如果广告拉
- *  取成功，则立马展示开屏广告，否则放弃此次广告展示机会。
- */
-@property (nonatomic, assign) CGFloat fetchDelay;
-
-/**
- * 用于处理ad操作的根视图控制器
- */
-@property (nonatomic, weak) UIViewController *rootViewController;
-
-/**
- * 构造方法
- * rootViewController  用来跳转到广告页面
- * 详解：bottomView - 底部logo
- */
--(instancetype)initWithRootViewController:(UIViewController *)rootViewController WithBottomView:(UIView * _Nullable)bottomView;
-
-/**
- *  请先此方法钱设置广告位ID 和 rootViewController
- *  发起拉取广告请求，只拉取不展示
- *  详解：广告素材及广告图片拉取成功后会回调splashAdDidLoad方法，当拉取失败时会回调splashAdFailToPresent方法
- */
-- (void)loadAdData;
-
-/**
- *  展示广告
- */
-- (void)showAdInWindow:(UIWindow *)window;
-
-@end
-```
-
-RXSplashAdView回调
-
-```objective-c
-
-@protocol RXSplashAdViewDelegate <NSObject>
-
-@optional
-/**
- *  开屏广告素材加载成功
- */
-- (void)splashAdDidLoad:(RXSplashAdView *)splashAd;
-
-/**
- *  开屏广告展示失败
- */
-- (void)splashAdFailToPresent:(RXSplashAdView *)splashAd withError:(NSError *)error;
-
-/**
- *  开屏广告曝光回调
- */
-- (void)splashAdWillVisible:(RXSplashAdView *)splashAd;
-
-/**
- *  开屏广告点击回调
- */
-- (void)splashAdClicked:(RXSplashAdView *)splashAd;
-
-/**
- *  开屏广告将要关闭回调
- */
-- (void)splashAdWillClose:(RXSplashAdView *)splashAd;
-
-/**
- *  开屏广告关闭回调
- */
-- (void)splashAdDidClose:(RXSplashAdView *)splashAd;
-
-@end
-```
-
 开屏示例
 
 ```objective-c
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+/// 加载开屏广告
+-(void)addSplashAd
 {
-    // Override point for customization after application launch.
-    // 穿山甲设置 appID
-    [RXAdConfig setBUAdWithAppID: @""];
-    // 优量汇设置 appID
-    [RXAdConfig setGDTAdWithAppID: @""];
-  
+    // 显示底部logo等
+    UIView *BottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 120)];
+    
     // 初始化开屏
-  	// BottomView 可用于底部展示logo
-    self.splashAdView = [[RXSplashAdView alloc] initWithRootViewController:self.window.rootViewController
-                                                            WithBottomView:nil];
+    self.splashAdView = [[RXSplashAdView alloc] initWithRootViewController:self.window.rootViewController WithBottomView: BottomView];
     // 拉取广告超时时间 默认为3秒
     self.splashAdView.fetchDelay = 5;
     // 代理
@@ -244,10 +169,12 @@ RXRewardedVideoAd 激励视频示例
 {
     // 初始化激励视频广告
     self.rewardedVideoAd = [[RXRewardedVideoAd alloc] init];
-    // 穿山甲广告位id 不填则不加载穿山甲开屏
+    // 穿山甲广告位id 不填则不加载穿山甲激励视频
     self.rewardedVideoAd.BUSlotID = @"";
-    // 优量汇广告位id 不填则不加载优量汇开屏
+    // 优量汇广告位id 不填则不加载优量汇激励视频
     self.rewardedVideoAd.GDTSlotID = @"";
+    // 谷歌广告位id 不填则不加载谷歌激励视频
+    self.rewardedVideoAd.GADMobSlotID = @"";
     // 设置代理
     self.rewardedVideoAd.delegate = self;
     // 发起拉取广告请求

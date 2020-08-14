@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class RXRewardedVideoModel;
 @class RXRewardedVideoAd;
 
-NS_ASSUME_NONNULL_BEGIN
+extern NSString *const kRXRewardedVideoAdName; // 开屏广告
 
 @protocol RXRewardedVideoAdDelegate <NSObject>
 
@@ -91,6 +93,11 @@ NS_ASSUME_NONNULL_BEGIN
  * 广点通广告位id
  */
 @property (nonatomic, copy, nonnull) NSString *GDTSlotID;
+
+/**
+ * 谷歌广告位id
+ */
+@property (nonatomic, copy, nonnull) NSString *GADMobSlotID;
 
 /**
  * 穿山甲激励视频可以携带信息
