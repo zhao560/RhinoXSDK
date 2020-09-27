@@ -185,7 +185,7 @@ RXRewardedVideoAd 激励视频示例
 /**
  * 此方法在成功呈现nativeExpressAdView时调用。
  */
--(void)rx_rewardedVideoAdViewRenderSuccess:(RXRewardedVideoAd *)rewardedVideoAd
+-(void)rx_rewardVideoAdDidLoad:(RXRewardedVideoAd *)rewardedVideoAd
 {
     [self.rewardedVideoAd showAdFromRootViewController:self];
 }
