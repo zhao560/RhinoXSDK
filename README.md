@@ -82,20 +82,10 @@ SDK 需要在 AppDelegate 的方法 - (BOOL)application:(UIApplication *)applica
 {
     // Override point for customization after application launch.
     /**
-    * 穿山甲sdk注册接口，请在app初始化时调用。
+    * 广告注册接口，请在app初始化时调用。
     */
-    [RXAdConfig setBUAdWithAppID:@""];
-    /**
-    * 优量汇sdk注册接口，请在app初始化时调用。
-    */
-    [RXAdConfig setGDTAdWithAppID:@""];
-    /**
-    * 初始化移动广告
-    * 请在您的应用的 Info.plist 文件中，添加一个字符串值为您的 AdMob 应用 ID
-    * 请参考 https://developers.google.cn/admob/ios/quick-start
-    */
-    [RXAdConfig startGADMobileAdWithCompletionHandler:^(id  _Nonnull status) {
-        
+    [RXAdSDKConfig initWithAppId:@"app id" completionBlock:^(NSError * _Nonnull error) {
+
     }];
 }
 ```
@@ -119,10 +109,6 @@ SDK 需要在 AppDelegate 的方法 - (BOOL)application:(UIApplication *)applica
     self.splashAdView.fetchDelay = 5;
     // 代理
     self.splashAdView.delegate = self;
-    // 穿山甲广告位id 不填则不加载穿山甲开屏
-    self.splashAdView.BUSlotID = @"";
-    // 优量汇广告位id 不填则不加载优量汇开屏
-    self.splashAdView.GDTSlotID = @"";
     // 发起拉取广告请求
     [self.splashAdView loadAdData];
 }
@@ -169,12 +155,6 @@ RXRewardedVideoAd 激励视频示例
 {
     // 初始化激励视频广告
     self.rewardedVideoAd = [[RXRewardedVideoAd alloc] init];
-    // 穿山甲广告位id 不填则不加载穿山甲激励视频
-    self.rewardedVideoAd.BUSlotID = @"";
-    // 优量汇广告位id 不填则不加载优量汇激励视频
-    self.rewardedVideoAd.GDTSlotID = @"";
-    // 谷歌广告位id 不填则不加载谷歌激励视频
-    self.rewardedVideoAd.GADMobSlotID = @"";
     // 设置代理
     self.rewardedVideoAd.delegate = self;
     // 发起拉取广告请求

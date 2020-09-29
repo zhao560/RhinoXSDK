@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "RhinoXSDK"
-s.version      = "1.0.6"
+s.version      = "1.0.7"
 s.summary      = "搏牛工具"
 
 s.homepage     = "https://github.com/zhao560/RhinoXSDK"
