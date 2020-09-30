@@ -3,7 +3,7 @@
 要使用CocoaPods将RhinoXSDK集成到您的Xcode项目中，请在您的`Podfile`中指定
 
 ```ruby
-pod 'RhinoXSDK', '~> 1.0.6'
+pod 'RhinoXSDK', '~> 1.0.7'
 ```
 
 ## 工具使用
