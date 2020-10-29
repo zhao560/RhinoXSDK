@@ -68,6 +68,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat fetchDelay;
 
 /**
+ * 广告位ID
+ */
+@property (nonatomic, copy) NSString *adIdentity;
+
+/**
  * 构造方法
  * rootViewController  用来跳转到广告页面
  * 详解：bottomView - 底部logo
@@ -80,7 +85,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  详解：广告素材及广告图片拉取成功后会回调splashAdDidLoad方法，当拉取失败时会回调splashAdFailToPresent方法
  */
 - (void)loadAdData;
-
 
 /**
  *  展示广告

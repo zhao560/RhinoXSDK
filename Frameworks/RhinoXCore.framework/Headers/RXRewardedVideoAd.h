@@ -89,6 +89,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, nullable) RXRewardedVideoModel *rewardedVideoModel;
 
 /**
+ * 广告位ID
+ */
+@property (nonatomic, copy) NSString *adIdentity;
+
+/**
  加载广告方法 支持 iOS8.1 及以上系统
  */
 - (void)loadAdData;

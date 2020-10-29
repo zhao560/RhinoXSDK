@@ -13,12 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RXAdSDKConfig : NSObject
 
 /**
- 注册SDK
- 
- @param appId 给定的唯一appid
- @param completion 失败原因
+ * 注册SDK
+ * @param completion 失败原因
  */
-+ (void)initWithAppId:(NSString *)appId completionBlock:(void (^)(NSError *error))completion;
++ (void)registCompletionBlock:(void (^)(NSError *error))completion;
 
 @end
 

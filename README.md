@@ -3,7 +3,7 @@
 要使用CocoaPods将RhinoXSDK集成到您的Xcode项目中，请在您的`Podfile`中指定
 
 ```ruby
-pod 'RhinoXSDK', '~> 1.0.7'
+pod 'RhinoXSDK', '~> 1.0.8'
 ```
 
 ## 工具使用
@@ -84,7 +84,7 @@ SDK 需要在 AppDelegate 的方法 - (BOOL)application:(UIApplication *)applica
     /**
     * 广告注册接口，请在app初始化时调用。
     */
-    [RXAdSDKConfig initWithAppId:@"app id" completionBlock:^(NSError * _Nonnull error) {
+    [RXAdSDKConfig registCompletionBlock:^(NSError * _Nonnull error) {
 
     }];
 }
@@ -105,8 +105,8 @@ SDK 需要在 AppDelegate 的方法 - (BOOL)application:(UIApplication *)applica
     
     // 初始化开屏
     self.splashAdView = [[RXSplashAdView alloc] initWithRootViewController:self.window.rootViewController WithBottomView: BottomView];
-    // 拉取广告超时时间 默认为3秒
-    self.splashAdView.fetchDelay = 5;
+    // 广告位ID 
+    self.splashAdView.adIdentity = @"";
     // 代理
     self.splashAdView.delegate = self;
     // 发起拉取广告请求
@@ -155,6 +155,8 @@ RXRewardedVideoAd 激励视频示例
 {
     // 初始化激励视频广告
     self.rewardedVideoAd = [[RXRewardedVideoAd alloc] init];
+      // 广告位ID 
+    self.rewardedVideoAd.adIdentity = @"";
     // 设置代理
     self.rewardedVideoAd.delegate = self;
     // 发起拉取广告请求
