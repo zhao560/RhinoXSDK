@@ -3,7 +3,7 @@
 要使用CocoaPods将RhinoXSDK集成到您的Xcode项目中，请在您的`Podfile`中指定
 
 ```ruby
-pod 'RhinoXSDK', '~> 1.0.8'
+pod 'RhinoXSDK', '~> 1.0.9'
 ```
 
 ## 工具使用
@@ -169,7 +169,7 @@ RXRewardedVideoAd 激励视频示例
  */
 -(void)rx_rewardVideoAdDidLoad:(RXRewardedVideoAd *)rewardedVideoAd
 {
-    [self.rewardedVideoAd showAdFromRootViewController:self];
+    [self.rewardedVideoAd showAdFromRootViewController: self];
 }
 /**
  * 视频广告播放达到激励条件回调

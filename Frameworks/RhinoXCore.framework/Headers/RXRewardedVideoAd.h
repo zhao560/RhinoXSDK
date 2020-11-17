@@ -42,7 +42,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)rx_rewardVideoAd:(RXRewardedVideoAd *)rewardedVideoAd didFailWithError:(NSError *)error;
 
-
 /**
  *  视频播放页即将展示回调
  * @param rewardedVideoAd RXRewardedVideoAd 实例
@@ -92,6 +91,12 @@ NS_ASSUME_NONNULL_BEGIN
  * 广告位ID
  */
 @property (nonatomic, copy) NSString *adIdentity;
+
+/**
+ * 加载的广告类型
+ * csj - 穿山甲 ylh - 优量汇 zhike - 直客
+ */
+@property (nonatomic, copy, readonly) NSString *advertiserNo;
 
 /**
  加载广告方法 支持 iOS8.1 及以上系统

@@ -18,13 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    if (self.window == nil) {
-        UIWindow *keyWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        keyWindow.backgroundColor = UIColor.whiteColor;
-        self.window = keyWindow;
-        self.window.rootViewController = [[ViewController alloc] init];
-        [self.window makeKeyAndVisible];
-    }
+    UIWindow *keyWindow = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    keyWindow.backgroundColor = UIColor.whiteColor;
+    self.window = keyWindow;
+    self.window.rootViewController = [[ViewController alloc] init];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

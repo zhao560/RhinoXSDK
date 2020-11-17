@@ -73,6 +73,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *adIdentity;
 
 /**
+ * 加载的广告类型
+ * csj - 穿山甲 ylh - 优量汇 zhike - 直客
+ */
+@property (nonatomic, copy, readonly) NSString *advertiserNo;
+
+/**
  * 构造方法
  * rootViewController  用来跳转到广告页面
  * 详解：bottomView - 底部logo
