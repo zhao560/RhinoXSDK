@@ -60,7 +60,7 @@ pod 'RhinoXSDK', '~> 1.0.9'
 如果要使用穿山甲(Bytedance-UnionAD) 请在您的`Podfile`中指定 不用可不导入
 
 ```ruby
-pod 'Bytedance-UnionAD'
+pod 'Ads-CN'
 ```
 
 如果要使用优量汇广告(GDTMobSDK)  请在您的`Podfile`中指定 不用可不导入
